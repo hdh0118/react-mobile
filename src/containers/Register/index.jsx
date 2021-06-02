@@ -17,6 +17,14 @@ export default class Register extends Component {
         })
     }
 
+    register = ()=>{
+      console.log(this.state)
+    }
+
+    toLogin = ()=>{
+      this.props.history.replace('/login')
+    }
+
   render() {
     return (
       <div>
@@ -31,8 +39,8 @@ export default class Register extends Component {
                     <Radio className="my-radio" checked={this.state.type === 'dashen'} type='dashen' onClick={val=>this.handleChange('type', 'dashen')}>大神</Radio>
                     <Radio className="my-radio" checked={this.state.type === 'boss'} type='boss' onClick={val => this.handleChange('type', 'boss')}>老板</Radio>
                 </ListItem>
-                <Button type='primary'>注册</Button>
-                <Button>已有账户</Button>
+                <Button type='primary' onClick={()=>{this.register()}}>注册</Button>
+                <Button onClick={()=>{this.toLogin()}}>已有账户</Button>
             </List>
         </WingBlank>
       </div>
